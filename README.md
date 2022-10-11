@@ -317,7 +317,7 @@ spec:
 EOF
 ```
 ```
-kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
+kubectl run -it --rm -n myhackns --image xxradar/hackon --env="POD=$POD" debug
 ```
 ```
 nslookup www.radarhack.com
