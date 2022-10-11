@@ -320,9 +320,9 @@ EOF
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
 ```
 ```
-nslookup my-nginx-clusterip.prod-nginx
+nslookup www.radarhack.com
 ...
-curl my-nginx-clusterip.prod-nginx
+curl https://www.radarhack.com
 ...
 ```
 
@@ -332,9 +332,9 @@ kubectl label po/debug -n -n prod-nginx  quarantine=true
 ```
 Retun to the pod
 ```
-nslookup my-nginx-clusterip.prod-nginx
+curl https://www.radarhack.com
 ...
-curl my-nginx-clusterip.prod-nginx
+curl https://www.radarhack.com
 ...
 ```
 ```
