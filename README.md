@@ -6,7 +6,6 @@ kubectl create ns dev-nginx
 kubectl create ns myhackns
 ```
 ```
-```
 kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Service
