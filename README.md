@@ -47,8 +47,6 @@ spec:
     app: nginx
 EOF
 ```
-```
-
 ### Check connectivity
 ```
 kubectl get po -n prod-nginx -o wide  --show-labels
