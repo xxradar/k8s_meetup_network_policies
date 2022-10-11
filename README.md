@@ -300,6 +300,44 @@ kubectl run -it --rm  -n dev-nginx --image xxradar/hackon -l mode=debug debug
 curl my-nginx-clusterip.prod-nginx
 ...
 ```
+## Advanced: Cilium cluster wide network policy example
+```
+kubectl apply -f -<<EOF
+apiVersion: "cilium.io/v2"
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: "quarantine"
+spec:
+  endpointSelector:
+    matchLabels:
+      quarantine: "true"
+  egressDeny:
+  - toEntities:
+    - "world"
+EOF
+```
+```
+kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
+```
+```
+nslookup my-nginx-clusterip.prod-nginx
+...
+curl my-nginx-clusterip.prod-nginx
+...
+```
+
+In an other terminal 
+```
+kubectl label po/debug -n -n prod-nginx  quarantine=true 
+```
+Retun to the pod
+```
+nslookup my-nginx-clusterip.prod-nginx
+...
+curl my-nginx-clusterip.prod-nginx
+...
+```
+```
 ## Cleanup
 ```
 kubectl delete ns prod-nginx
