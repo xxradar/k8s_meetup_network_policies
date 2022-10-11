@@ -211,6 +211,30 @@ spec:
       port: 80
 EOF
 ```
+or
+```
+kubectl apply -n prod-nginx -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-http-other-namespace
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          project: debug
+      podSelector:
+        matchLabels:
+          mode: debug
+    ports:
+    - protocol: TCP
+      port: 80
+EOF
+```
 ```
 kubectl label ns myhackns project=debug
 ```
