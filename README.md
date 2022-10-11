@@ -61,6 +61,7 @@ POD=$(kubectl get pods -n prod-nginx  -l app=nginx -o jsonpath='{range .items[0]
 ```
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
 ```
+```
 curl my-nginx-clusterip
 curl $POD
 ```
