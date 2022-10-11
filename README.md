@@ -260,4 +260,10 @@ kubectl run -it --rm  -n dev-nginx --image xxradar/hackon -l mode=debug debug
 curl my-nginx-clusterip.prod-nginx
 ...
 ```
+## Cleanup
+```
+kubectl delete ns prod-nginx
+kubectl delete ns dev-nginx
+kubectl delete ns myhackns
+```
 
