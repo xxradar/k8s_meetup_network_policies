@@ -159,7 +159,7 @@ Check connectivity
 ```
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debugnslookup my-nginx-clusterip
 ```
-...
+```
 curl my-nginx-clusterip
 ...
 curl $POD
