@@ -258,9 +258,9 @@ kubectl label ns myhackns project=debug
 kubectl run -it --rm  -n myhackns --image xxradar/hackon -l mode=debug debug
 ```
 ```
-nslookup my-nginx-clusterip
+nslookup my-nginx-clusterip.prod-nginx
 ...
-curl my-nginx-clusterip
+curl my-nginx-clusterip.prod-nginx
 ...
 ```
 ```
