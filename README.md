@@ -48,15 +48,8 @@ spec:
 EOF
 ```
 ```
-kubectl get svc -n prod-nginx -o wide
-```
-```
-kubectl describe svc -n prod-nginx  my-nginx-clusterip
-```
-```
-kubectl get ep my-nginx-clusterip -n prod-nginx -o yaml
-```
-Check connectivity ...
+
+### Check connectivity
 ```
 kubectl get po -n prod-nginx -o wide  --show-labels
 ...
@@ -68,6 +61,8 @@ kubectl run -it --rm -n prod-nginx --image xxradar/hackon debug
 curl my-nginx-clusterip
 curl <pod_ip>
 ```
+## Network policies
+### Default-deny
 Apply a default-deny all policy
 ```
 kubectl apply -n prod-nginx -f - <<EOF
