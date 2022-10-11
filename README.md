@@ -54,10 +54,15 @@ kubectl get po -n prod-nginx -o wide  --show-labels
 kubectl get svc -n prod-nginx -o wide --show-labels
 ...
 ```
+For the sake of simplicity, open a second terminal
 ```
-kubectl run -it --rm -n prod-nginx --image xxradar/hackon debug
+POD=$(kubectl get pods -n prod-nginx  -l app=nginx -o jsonpath='{range .items[0]}{@.status.podIP}{"\n"}{end}')
+```
+```
+kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
+```
 curl my-nginx-clusterip
-curl <pod_ip>
+curl $POD
 ```
 ## Network policies
 ### Default-deny
