@@ -289,7 +289,7 @@ kubectl run -it --rm  -n dev-nginx --image xxradar/hackon -l mode=debug debug
 curl my-nginx-clusterip.prod-nginx
 ...
 ```
-Fix access to `dev-nginx`
+Fix access from `dev-nginx` namespace
 ```
 kubectl label ns dev-nginx project=debug
 ```
