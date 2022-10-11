@@ -122,7 +122,7 @@ curl my-nginx-clusterip
 curl <a_prod-nginx_pod_ip>
 ...
 ```
-### HTTP ingress 
+### HTTP ingress (server-side)
 Enable access on port 80
 ```
 kubectl apply -n prod-nginx -f - <<EOF
@@ -153,7 +153,7 @@ curl my-nginx-clusterip
 curl <a_prod-nginx_pod_ip>
 ...
 ```
-### HTTP client egress 
+### HTTP egress (client-side)
 ```
 kubectl apply -n prod-nginx -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -180,7 +180,7 @@ curl <a_prod-nginx_pod_ip>
 ...
 ```
 
-### HTTP ingress different namespace
+### HTTP ingress different namespace (client-side)
 Connectivity form a different namespace ...
 ```
 kubectl apply -n prod-nginx -f - <<EOF
