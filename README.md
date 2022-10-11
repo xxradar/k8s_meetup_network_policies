@@ -84,6 +84,9 @@ spec:
    - Egress
 EOF
 ```
+```
+kubectl get netpol -n prod-nginx
+```
 Check connectivity
 ```
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
@@ -124,6 +127,9 @@ spec:
 EOF
 ```
 ```
+kubectl get netpol -n prod-nginx
+```
+```
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
 ```
 ```
@@ -155,6 +161,9 @@ spec:
       port: 80
 EOF
 ```
+```
+kubectl get netpol -n prod-nginx
+```
 Check connectivity
 ```
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debugnslookup my-nginx-clusterip
@@ -183,6 +192,9 @@ spec:
     - podSelector:
         matchLabels: {}
 EOF
+```
+```
+kubectl get netpol -n prod-nginx
 ```
 ```
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
@@ -250,6 +262,9 @@ spec:
     - protocol: TCP
       port: 80
 EOF
+```
+```
+kubectl get netpol -n prod-nginx
 ```
 ```
 kubectl label ns myhackns project=debug
