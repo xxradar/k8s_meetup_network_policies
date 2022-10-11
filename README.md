@@ -63,6 +63,7 @@ kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
 ```
 Inside the pod (you can keep it open, because network policies are applied on running pods)
 ```
+nslookup my-nginx-clusterip
 curl my-nginx-clusterip
 curl $POD
 ```
@@ -88,6 +89,8 @@ Check connectivity
 kubectl run -it --rm -n prod-nginx --image xxradar/hackon --env="POD=$POD" debug
 ```
 ```
+nslookup my-nginx-clusterip
+...
 curl my-nginx-clusterip
 ...
 curl $POD
