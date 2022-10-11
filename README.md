@@ -328,7 +328,7 @@ curl https://www.radarhack.com
 
 In an other terminal 
 ```
-kubectl label po/debug -n -n prod-nginx  quarantine=true 
+kubectl label po/debug -n -n myhackns  quarantine=true 
 ```
 Retun to the pod
 ```
@@ -336,8 +336,7 @@ curl https://www.radarhack.com
 ...
 curl https://www.radarhack.com
 ...
-```
-```
+
 ## Cleanup
 ```
 kubectl delete ns prod-nginx
