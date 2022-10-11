@@ -1,4 +1,36 @@
 ## Kubernetes native network security policies
+### Setting up a lab environment
+```
+kubectl create ns prod-nginx
+kubectl create ns dev-nginx
+kubectl create ns myhackns
+```
+```
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-clusterip
+  namespace: prod-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: nginx
+EOF
+```
+```
+kubectl get svc -n prod-nginx -o wide
+```
+```
+kubectl describe svc -n prod-nginx  my-nginx-clusterip
+```
+```
+kubectl get ep my-nginx-clusterip -n prod-nginx -o yaml
+```
+```
 Check connectivity ...
 
 ```
