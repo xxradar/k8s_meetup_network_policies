@@ -29,9 +29,7 @@ kubectl describe svc -n prod-nginx  my-nginx-clusterip
 ```
 kubectl get ep my-nginx-clusterip -n prod-nginx -o yaml
 ```
-```
 Check connectivity ...
-
 ```
 kubectl get po -n prod-nginx -o wide  --show-labels
 ...
