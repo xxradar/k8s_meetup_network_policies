@@ -7,6 +7,33 @@ kubectl create ns myhackns
 ```
 ```
 kubectl apply -f - <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: prod-nginx
+  labels:
+    app: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        env: prod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+EOF
+```
+```
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Service
 metadata:
