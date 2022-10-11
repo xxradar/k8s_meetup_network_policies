@@ -86,6 +86,7 @@ curl my-nginx-clusterip
 curl <a_prod-nginx_pod_ip>
 ...
 ```
+### DNS egress 
 Fix the DNS resolving <br>
 If required (depending on cluster initialisation) label the `kube-system` namespace
 ```
@@ -121,6 +122,7 @@ curl my-nginx-clusterip
 curl <a_prod-nginx_pod_ip>
 ...
 ```
+### HTTP ingress 
 Enable access on port 80
 ```
 kubectl apply -n prod-nginx -f - <<EOF
@@ -151,7 +153,7 @@ curl my-nginx-clusterip
 curl <a_prod-nginx_pod_ip>
 ...
 ```
-Fix the debug access
+### HTTP client egress 
 ```
 kubectl apply -n prod-nginx -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -177,7 +179,8 @@ curl my-nginx-clusterip
 curl <a_prod-nginx_pod_ip>
 ...
 ```
-                                       
+
+### HTTP ingress different namespace
 Connectivity form a different namespace ...
 ```
 kubectl apply -n prod-nginx -f - <<EOF
@@ -232,4 +235,5 @@ kubectl label ns dev-nginx project=debug
 kubectl run -it --rm  -n dev-nginx --image xxradar/hackon -l mode=debug debug
 curl my-nginx-clusterip.prod-nginx
 ...
-```# k8s_meetup_network_policies
+```
+
