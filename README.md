@@ -302,7 +302,7 @@ curl my-nginx-clusterip.prod-nginx
 ```
 ## Advanced: Cilium cluster wide network policy example
 ```
-kubectl apply -f -<<EOF
+kubectl apply -f - <<EOF
 apiVersion: "cilium.io/v2"
 kind: CiliumClusterwideNetworkPolicy
 metadata:
@@ -325,10 +325,9 @@ nslookup www.radarhack.com
 curl https://www.radarhack.com
 ...
 ```
-
 In an other terminal 
 ```
-kubectl label po/debug -n -n myhackns  quarantine=true 
+kubectl label po/debug -n myhackns  quarantine=true 
 ```
 Retun to the pod
 ```
@@ -336,11 +335,12 @@ curl https://www.radarhack.com
 ...
 curl https://www.radarhack.com
 ...
-
+```
 ## Cleanup
 ```
 kubectl delete ns prod-nginx
 kubectl delete ns dev-nginx
 kubectl delete ns myhackns
+kubectl delete CiliumClusterwideNetworkPolicy quarantine
 ```
 
