@@ -1,7 +1,8 @@
 ## Kubernetes native network security policies
 These labs require a K8S cluster with Ciliim or Calico CNI installed. <br>
 For a quickstart, check out:<br>
-https://learn.microsoft.com/en-gb/azure/aks/azure-cni-powered-by-cilium
+https://learn.microsoft.com/en-gb/azure/aks/azure-cni-powered-by-cilium<br>
+For overlay mode, also complete and read https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay.
 
 ### Setting up a lab environment
 ```
