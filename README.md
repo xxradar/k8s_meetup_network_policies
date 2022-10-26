@@ -1,4 +1,8 @@
 ## Kubernetes native network security policies
+These labs require a K8S cluster with Ciliim or Calico CNI installed. <br>
+For a quickstart<br>
+https://learn.microsoft.com/en-gb/azure/aks/azure-cni-powered-by-cilium
+
 ### Setting up a lab environment
 ```
 kubectl create ns prod-nginx
